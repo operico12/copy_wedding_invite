@@ -685,11 +685,39 @@
     @media (max-width: 900px){
       .venueGrid{ grid-template-columns: 1fr; }
     }
-    @media (max-width: 860px){
-      .schedLine{ left: 20px; }
-      .schedRow{ grid-template-columns: 56px 1fr; margin: 28px 0; }
-      .schedRow .spacer{ display:none; }
-      .schedCard{ max-width: 100%; }
+   @media (max-width: 860px){
+  .schedLine{ left: 28px; } /* align with icon */
+
+  .schedRow{
+    grid-template-columns: 56px 1fr;
+    gap: 14px;
+    align-items: start;
+    margin: 28px 0;
+  }
+
+  .schedRow .spacer{ display:none; }
+
+  /* Force the icon to column 1 and the card to column 2 */
+  .schedRow .iconDot{
+    grid-column: 1;
+    grid-row: 1;
+    margin: 10px auto 0;
+  }
+
+  .schedRow .schedCard{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: stretch;
+    max-width: 100%;
+  }
+
+  /* Optional: make cards feel better on mobile */
+  .schedCard{
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+}
+
     }
     @media (max-width: 760px){
       .timer{ grid-template-columns: repeat(2, 1fr); }
