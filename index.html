@@ -125,7 +125,7 @@
     }
 
     /* =========================================================
-       TOP NAV (professional touch)
+       TOP NAV
        ========================================================= */
     .nav{
       position: sticky;
@@ -168,7 +168,7 @@
     .links a:hover{ background: rgba(157,184,160,.18); }
 
     /* =========================================================
-       COVER (Your envelope photo full screen)
+       COVER
        ========================================================= */
     .cover{
       position:fixed;
@@ -357,7 +357,7 @@
     }
 
     /* =========================================================
-       SCHEDULE (cleaner + reliable)
+       SCHEDULE
        ========================================================= */
     .schedule{ background: var(--paper); }
 
@@ -426,7 +426,7 @@
     }
     .iconDot svg{ width:18px; height:18px; fill: rgba(62, 96, 78, .95); }
 
-    /* ===== Section seam for professional separation (Schedule -> Venue) ===== */
+    /* ===== separation line between schedule and venue ===== */
     .sectionSeam{
       height: 22px;
       background: linear-gradient(
@@ -556,6 +556,9 @@
       .venueGrid{ grid-template-columns: 1fr; }
       .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
     }
+    @media (max-width: 480px){
+      .galleryGrid{ grid-template-columns: 1fr; }
+    }
 
     /* =========================================================
        RSVP
@@ -657,7 +660,7 @@
     }
 
     /* =========================================================
-       FADE-IN ON SCROLL (professional subtle animation)
+       FADE-IN ON SCROLL
        ========================================================= */
     .reveal{
       opacity:0;
@@ -681,19 +684,16 @@
       .title{ font-size: 40px; }
       .heroCard{ padding: 44px 22px 34px; }
       section{ padding: 80px 16px; }
-      .links{ display:none; } /* nav links hidden on very small screens */
-      .galleryGrid{ grid-template-columns: 1fr; } /* very small phones */
+      .links{ display:none; }
     }
     @media (max-width: 860px){
       .schedLine{ left: 20px; }
-      .schedRow{
-        grid-template-columns: 56px 1fr;
-      }
+      .schedRow{ grid-template-columns: 56px 1fr; }
       .schedRow .spacer{ display:none; }
       .schedCard{ max-width: 100%; }
     }
 
-    /* Improve intl-tel-input layout so it matches your inputs */
+    /* Make intl-tel-input align with your input width */
     .iti{ width:100%; }
   </style>
 </head>
@@ -708,7 +708,7 @@
     <div class="coverHint">TAP ANYWHERE TO OPEN</div>
   </div>
 
-  <!-- NAV (shows after opening) -->
+  <!-- NAV -->
   <div class="nav" id="nav">
     <div class="navInner">
       <div class="brand">Morolake & Opeyemi</div>
@@ -816,7 +816,6 @@
       <div class="schedWrap">
         <div class="schedLine"></div>
 
-        <!-- Row 1 -->
         <div class="schedRow">
           <div class="schedCard left">
             <div class="schedTitle">Traditional Ceremony</div>
@@ -834,7 +833,6 @@
           <div class="spacer"></div>
         </div>
 
-        <!-- Row 2 -->
         <div class="schedRow">
           <div class="spacer"></div>
 
@@ -852,7 +850,6 @@
           </div>
         </div>
 
-        <!-- Row 3 -->
         <div class="schedRow">
           <div class="schedCard left">
             <div class="schedTitle">Reception</div>
@@ -874,7 +871,6 @@
     </div>
   </section>
 
-  <!-- professional separation between schedule and venue -->
   <div class="sectionSeam" aria-hidden="true"></div>
 
   <!-- VENUE -->
@@ -922,219 +918,4 @@
               <svg viewBox="0 0 24 24"><path d="M4 22V3h16v19H4zm4-2h2v-2H8v2zm0-4h2v-2H8v2zm0-4h2v-2H8v2zm6 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V9h-2v2z"/></svg>
             </div>
             <div>
-              <h4>Accommodations</h4>
-              <p>We’ve reserved rooms at partner hotels in Akure. Use code <strong>“MOROLAKEOPEYEMI”</strong> for special rates.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GALLERY (backend-ready placeholders) -->
-  <section class="love" id="gallery">
-    <div class="container reveal">
-      <div class="kicker">MEMORIES</div>
-      <div class="title" style="font-size:52px;">Gallery</div>
-      <div class="divider"><span>✦</span></div>
-
-      <p class="subtitle" style="margin-top:10px;">
-        Moments we cherish — more to come.
-      </p>
-
-      <div class="galleryGrid" id="galleryGrid">
-        <div class="galleryCard skeleton"></div>
-        <div class="galleryCard skeleton"></div>
-        <div class="galleryCard skeleton"></div>
-        <div class="galleryCard skeleton"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section class="pattern rsvp" id="rsvp">
-    <div class="container reveal">
-      <div class="kicker">WE HOPE YOU CAN JOIN US</div>
-      <div class="title" style="font-size:52px;">RSVP</div>
-      <div class="divider"><span>✦</span></div>
-
-      <p class="subtitle" style="margin-top:10px;">Please respond by <strong>May 1st, 2026</strong></p>
-
-      <div class="formWrap">
-        <form id="rsvpForm">
-          <label for="name">Your Name *</label>
-          <input id="name" name="name" required placeholder="Enter your full name"/>
-
-          <label for="email">Email Address *</label>
-          <input id="email" name="email" type="email" required placeholder="your@email.com"/>
-
-          <label for="phone">Phone Number *</label>
-          <input id="phone" name="phone" type="tel" required placeholder="+234 801 234 5678"/>
-          <small style="display:block; margin-top:6px; color:rgba(70,64,58,.65); font-size:12px;">
-            Default is Nigeria (+234). You may change your country.
-          </small>
-
-          <label>Will you be attending? *</label>
-          <div class="radioRow">
-            <label style="display:flex; gap:8px; align-items:center; margin:0;">
-              <input type="radio" name="attend" value="accept" required/>
-              Joyfully Accept
-            </label>
-            <label style="display:flex; gap:8px; align-items:center; margin:0;">
-              <input type="radio" name="attend" value="decline" required/>
-              Regretfully Decline
-            </label>
-          </div>
-
-          <label for="diet">Dietary Restrictions</label>
-          <input id="diet" name="diet" placeholder="Vegetarian, vegan, allergies, etc."/>
-
-          <label for="msg">Message for the Couple</label>
-          <textarea id="msg" name="msg" placeholder="Share your wishes or a special note..."></textarea>
-
-          <div class="sendRow">
-            <button class="btn" type="submit">SEND RSVP</button>
-          </div>
-
-          <div class="success" id="rsvpSuccess">
-            Thank you! Your RSVP has been received. ❤️
-          </div>
-
-          <p class="note">
-            (This form shows a confirmation. Next step: connect to backend for approval + email.)
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="fName">Morolake & Opeyemi</div>
-    <p class="fDate">October 23–24, 2026</p>
-    <span class="heart">♥</span>
-    <p class="tag">#MoLOveStory2026</p>
-  </footer>
-
-  <!-- Phone input library -->
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intl-tel-input.min.js"></script>
-
-  <script>
-    // ---- Cover open ----
-    const cover = document.getElementById("cover");
-    const coverBtn = document.getElementById("coverBtn");
-    const nav = document.getElementById("nav");
-
-    function openCover(){
-      if (cover.classList.contains("hide")) return;
-      cover.classList.add("hide");
-      document.body.style.overflow = "auto";
-      setTimeout(() => cover.remove(), 900);
-      nav.style.display = "block"; // show nav after opening
-    }
-    coverBtn.addEventListener("click", openCover);
-
-    // ---- RSVP button in hero scrolls to RSVP ----
-    document.getElementById("heroRsvpBtn").addEventListener("click", () => {
-      document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
-    });
-
-    // ---- Get Directions button (replace link later) ----
-    document.getElementById("directionsBtn").addEventListener("click", () => {
-      alert("Add your Google Maps link here when ready.");
-    });
-
-    // ---- Countdown (Oct 23, 2026) ----
-    const target = new Date("2026-10-23T00:00:00").getTime();
-    const elD = document.getElementById("cdDays");
-    const elH = document.getElementById("cdHours");
-    const elM = document.getElementById("cdMins");
-    const elS = document.getElementById("cdSecs");
-
-    function tick(){
-      const now = Date.now();
-      let diff = target - now;
-      if (diff < 0) diff = 0;
-
-      const days = Math.floor(diff / 86400000);
-      const hours = Math.floor(diff / 3600000) % 24;
-      const mins = Math.floor(diff / 60000) % 60;
-      const secs = Math.floor(diff / 1000) % 60;
-
-      elD.textContent = days;
-      elH.textContent = String(hours).padStart(2, "0");
-      elM.textContent = String(mins).padStart(2, "0");
-      elS.textContent = String(secs).padStart(2, "0");
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // ---- Phone input with default +234 (Nigeria), user can change country ----
-    const phoneInput = document.querySelector("#phone");
-    const iti = window.intlTelInput(phoneInput, {
-      initialCountry: "ng",
-      separateDialCode: true,
-      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js",
-    });
-
-    // ---- RSVP form (demo submit -> in-page success) ----
-    const success = document.getElementById("rsvpSuccess");
-    const form = document.getElementById("rsvpForm");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      if (!iti.isValidNumber()) {
-        alert("Please enter a valid phone number.");
-        return;
-      }
-
-      const phoneE164 = iti.getNumber(); // e.g. +2348012345678
-      console.log("Phone (E.164):", phoneE164);
-
-      success.style.display = "block";
-      form.reset();
-      setTimeout(() => success.style.display = "none", 4500);
-    });
-
-    // ---- Reveal on scroll ----
-    const reveals = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      for (const ent of entries){
-        if(ent.isIntersecting){
-          ent.target.classList.add("show");
-          io.unobserve(ent.target);
-        }
-      }
-    }, { threshold: 0.15 });
-
-    reveals.forEach(el => io.observe(el));
-
-    // ---- Gallery loader (backend-ready) ----
-    async function loadGallery(){
-      const grid = document.getElementById("galleryGrid");
-      if (!grid) return;
-
-      try {
-        // Replace later with your real backend endpoint
-        const res = await fetch("https://YOUR_BACKEND_DOMAIN/api/gallery");
-        if (!res.ok) throw new Error();
-
-        const photos = await res.json(); // [{ url: "..." }]
-        if (!Array.isArray(photos) || photos.length === 0) return;
-
-        grid.innerHTML = photos.slice(0,4).map(p => `
-          <div class="galleryCard">
-            <img src="${p.url}" alt="Gallery photo">
-          </div>
-        `).join("");
-      } catch {
-        // backend not ready → keep placeholders
-      }
-    }
-    loadGallery();
-  </script>
-
-</body>
-</html>
+              <h4>Ac
