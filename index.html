@@ -10,9 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Phone input (default +234 Nigeria, can change to any country) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
-
   <style>
     :root{
       --cream:#fbf8f3;
@@ -50,9 +47,13 @@
 
     /* ---------- Section base ---------- */
     section{
-      padding: 96px 20px;
+      padding: 110px 20px;        /* more breathing room */
       text-align:center;
       position:relative;
+      scroll-margin-top: 78px;    /* fixes sticky nav covering headings */
+    }
+    section + section{
+      border-top: 1px solid rgba(232,226,216,.6); /* subtle separators */
     }
     .container{
       width:min(1050px, 92vw);
@@ -194,9 +195,7 @@
       border-radius: 18px;
       overflow:hidden;
       box-shadow: var(--shadow);
-      display:block;
     }
-    .coverBtn img{ width:100%; height:auto; display:block; }
     .coverHint{
       position:absolute;
       bottom:42px;
@@ -277,7 +276,7 @@
     /* =========================================================
        COUNTDOWN
        ========================================================= */
-    .countdown{ padding-top: 90px; padding-bottom: 90px; }
+    .countdown{ padding-top: 95px; padding-bottom: 95px; }
     .timer{
       display:grid;
       grid-template-columns: repeat(4, minmax(120px, 1fr));
@@ -303,6 +302,63 @@
       letter-spacing: 2.6px;
       text-transform: uppercase;
       color: rgba(90, 84, 76, .75);
+    }
+
+    /* =========================================================
+       GALLERY (4 photos you can swap from GitHub)
+       ========================================================= */
+    .gallery{
+      background: var(--paper);
+    }
+    .galleryGrid{
+      width: min(980px, 92vw);
+      margin: 52px auto 0;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+    .gItem{
+      position:relative;
+      overflow:hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(230, 224, 215, .9);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 12px 30px rgba(20,15,10,.06);
+      min-height: 220px;
+    }
+    .gItem img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform .6s ease;
+    }
+    .gItem:hover img{ transform: scale(1.08); }
+    .gLabel{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(230,224,215,.95);
+      backdrop-filter: blur(6px);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(46,42,37,.85);
+    }
+    .g1{ grid-column: 1 / span 7; }
+    .g2{ grid-column: 8 / span 5; }
+    .g3{ grid-column: 1 / span 5; }
+    .g4{ grid-column: 6 / span 7; }
+    .galleryNote{
+      margin-top: 18px;
+      color: rgba(70,64,58,.68);
+      font-size: 12px;
+      line-height: 1.55;
+      max-width: 780px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     /* =========================================================
@@ -359,15 +415,15 @@
     }
 
     /* =========================================================
-       SCHEDULE (cleaner + reliable)
+       SCHEDULE
        ========================================================= */
     .schedule{ background: var(--paper); }
 
     .schedWrap{
       width: min(980px, 92vw);
-      margin: 52px auto 0;
+      margin: 60px auto 0;
       position:relative;
-      padding: 10px 0 26px; /* little extra bottom padding */
+      padding: 34px 0;
     }
     .schedLine{
       position:absolute;
@@ -384,7 +440,7 @@
       grid-template-columns: 1fr 64px 1fr;
       gap: 18px;
       align-items:center;
-      margin: 34px 0;
+      margin: 52px 0;
     }
 
     .schedCard{
@@ -428,21 +484,6 @@
       flex: 0 0 auto;
     }
     .iconDot svg{ width:18px; height:18px; fill: rgba(62, 96, 78, .95); }
-
-    /* ======= NEW: Clear separation between Schedule and Venue on mobile ======= */
-    .sectionSeam{
-      height: 22px;
-      background: linear-gradient(
-        180deg,
-        rgba(232,226,216,0),
-        rgba(232,226,216,.7),
-        rgba(232,226,216,0)
-      );
-    }
-    @media (max-width: 720px){
-      #schedule{ padding-bottom: 110px; }
-      #venue{ padding-top: 110px; }
-    }
 
     /* =========================================================
        VENUE & TRAVEL
@@ -519,78 +560,11 @@
     }
 
     /* =========================================================
-       NEW: GALLERY (4 photos, backend-ready)
-       ========================================================= */
-    .gallery{ background: linear-gradient(var(--blush), var(--blush)); }
-    .galleryGrid{
-      width: min(980px, 92vw);
-      margin: 44px auto 0;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .gCard{
-      border-radius: 16px;
-      overflow:hidden;
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(230, 224, 215, .9);
-      box-shadow: 0 12px 30px rgba(20,15,10,.06);
-      aspect-ratio: 1 / 1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-    }
-    .gCard img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:none; /* shown when we set a real src */
-    }
-    .gPlaceholder{
-      width:100%;
-      height:100%;
-      background: linear-gradient(
-        90deg,
-        rgba(240,243,239,.9),
-        rgba(255,255,255,.9),
-        rgba(240,243,239,.9)
-      );
-      background-size: 200% 100%;
-      animation: shimmer 1.2s infinite linear;
-    }
-    @keyframes shimmer{
-      0%{ background-position: 0% 0; }
-      100%{ background-position: 200% 0; }
-    }
-    .gLabel{
-      position:absolute;
-      bottom:10px;
-      left:10px;
-      right:10px;
-      font-size: 11px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: rgba(46,42,37,.7);
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(230,224,215,.75);
-      padding: 8px 10px;
-      border-radius: 12px;
-      backdrop-filter: blur(6px);
-    }
-    @media (max-width: 900px){
-      .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px){
-      .galleryGrid{ grid-template-columns: 1fr; }
-    }
-
-    /* =========================================================
        RSVP
        ========================================================= */
     .rsvp{ padding-top: 100px; padding-bottom: 110px; }
     .formWrap{
-      width: min(560px, 92vw);
+      width: min(620px, 92vw);
       margin: 48px auto 0;
       background: rgba(255,255,255,.94);
       border: 1px solid rgba(230, 224, 215, .92);
@@ -605,7 +579,7 @@
       color: rgba(70,64,58,.85);
       margin: 14px 0 6px;
     }
-    input, textarea{
+    input, textarea, select{
       width:100%;
       padding: 12px 12px;
       border: 1px solid rgba(220, 212, 203, .95);
@@ -649,9 +623,11 @@
       color: rgba(35, 55, 45, .92);
       font-size: 13px;
     }
-
-    /* Make intl-tel-input align with your input width */
-    .iti{ width:100%; }
+    .rsvpGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
 
     /* =========================================================
        FOOTER
@@ -688,7 +664,7 @@
     }
 
     /* =========================================================
-       FADE-IN ON SCROLL (professional subtle animation)
+       FADE-IN ON SCROLL
        ========================================================= */
     .reveal{
       opacity:0;
@@ -709,21 +685,22 @@
     @media (max-width: 900px){
       .venueGrid{ grid-template-columns: 1fr; }
     }
-    @media (max-width: 720px){
+    @media (max-width: 860px){
+      .schedLine{ left: 20px; }
+      .schedRow{ grid-template-columns: 56px 1fr; margin: 28px 0; }
+      .schedRow .spacer{ display:none; }
+      .schedCard{ max-width: 100%; }
+    }
+    @media (max-width: 760px){
       .timer{ grid-template-columns: repeat(2, 1fr); }
       .names{ font-size: 48px; }
       .title{ font-size: 40px; }
       .heroCard{ padding: 44px 22px 34px; }
-      section{ padding: 80px 16px; }
-      .links{ display:none; } /* nav links hidden on very small screens */
-    }
-    @media (max-width: 860px){
-      .schedLine{ left: 20px; }
-      .schedRow{
-        grid-template-columns: 56px 1fr;
-      }
-      .schedRow .spacer{ display:none; }
-      .schedCard{ max-width: 100%; }
+      section{ padding: 88px 16px; }
+      .links{ display:none; }
+      .rsvpGrid{ grid-template-columns: 1fr; }
+      .g1,.g2,.g3,.g4{ grid-column: 1 / -1; }
+      .gItem{ min-height: 240px; }
     }
   </style>
 </head>
@@ -744,10 +721,10 @@
       <div class="brand">Morolake & Opeyemi</div>
       <div class="links">
         <a href="#countdown">Countdown</a>
+        <a href="#gallery">Photos</a>
         <a href="#love">Love Story</a>
         <a href="#schedule">Schedule</a>
         <a href="#venue">Venue</a>
-        <a href="#gallery">Gallery</a>
         <a href="#rsvp">RSVP</a>
       </div>
     </div>
@@ -767,8 +744,9 @@
       <div class="heroLine">Request the pleasure of your company</div>
       <div class="heroMeta">October 23–24, 2026 • Akure, Ondo State</div>
 
-      <div style="margin-top:24px;">
+      <div style="margin-top:24px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <button class="btn" type="button" id="heroRsvpBtn">RSVP</button>
+        <a class="btn btn-outline" href="#gallery">VIEW PHOTOS</a>
       </div>
     </div>
 
@@ -799,6 +777,45 @@
           <div class="timeLab">SECONDS</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY (4 photos) -->
+  <section class="gallery" id="gallery">
+    <div class="container reveal">
+      <div class="kicker">MEMORIES</div>
+      <div class="title" style="font-size:52px;">Our Photos</div>
+      <div class="divider"><span>✦</span></div>
+      <p class="subtitle">A few moments we love. You can replace these images anytime by updating the files in your GitHub repo.</p>
+
+      <div class="galleryGrid">
+        <!-- CHANGE THESE FILES IN YOUR REPO: assets/gallery-1.jpg ... gallery-4.jpg -->
+        <figure class="gItem g1">
+          <img src="assets/gallery-1.jpg" alt="Morolake & Opeyemi photo 1" loading="lazy">
+          <figcaption class="gLabel">Photo 1</figcaption>
+        </figure>
+
+        <figure class="gItem g2">
+          <img src="assets/gallery-2.jpg" alt="Morolake & Opeyemi photo 2" loading="lazy">
+          <figcaption class="gLabel">Photo 2</figcaption>
+        </figure>
+
+        <figure class="gItem g3">
+          <img src="assets/gallery-3.jpg" alt="Morolake & Opeyemi photo 3" loading="lazy">
+          <figcaption class="gLabel">Photo 3</figcaption>
+        </figure>
+
+        <figure class="gItem g4">
+          <img src="assets/gallery-4.jpg" alt="Morolake & Opeyemi photo 4" loading="lazy">
+          <figcaption class="gLabel">Photo 4</figcaption>
+        </figure>
+      </div>
+
+      <p class="galleryNote">
+        <strong>How to change photos:</strong> In your GitHub project, open the <code>assets</code> folder and replace
+        <code>gallery-1.jpg</code>, <code>gallery-2.jpg</code>, <code>gallery-3.jpg</code>, <code>gallery-4.jpg</code>
+        with your own images (keep the same filenames).
+      </p>
     </div>
   </section>
 
@@ -904,9 +921,6 @@
     </div>
   </section>
 
-  <!-- NEW: separator so Schedule and Venue don't look merged on mobile -->
-  <div class="sectionSeam" aria-hidden="true"></div>
-
   <!-- VENUE -->
   <section class="pattern venue" id="venue">
     <div class="container reveal">
@@ -962,39 +976,6 @@
     </div>
   </section>
 
-  <!-- NEW: GALLERY -->
-  <section class="gallery" id="gallery">
-    <div class="container reveal">
-      <div class="kicker">MEMORIES</div>
-      <div class="title" style="font-size:52px;">Gallery</div>
-      <div class="divider"><span>✦</span></div>
-      <p class="subtitle" style="margin-top:10px;">(These can be managed from your backend later. For now they are placeholders.)</p>
-
-      <div class="galleryGrid" id="galleryGrid">
-        <div class="gCard">
-          <div class="gPlaceholder"></div>
-          <img id="g1" alt="Gallery photo 1">
-          <div class="gLabel">Photo 1</div>
-        </div>
-        <div class="gCard">
-          <div class="gPlaceholder"></div>
-          <img id="g2" alt="Gallery photo 2">
-          <div class="gLabel">Photo 2</div>
-        </div>
-        <div class="gCard">
-          <div class="gPlaceholder"></div>
-          <img id="g3" alt="Gallery photo 3">
-          <div class="gLabel">Photo 3</div>
-        </div>
-        <div class="gCard">
-          <div class="gPlaceholder"></div>
-          <img id="g4" alt="Gallery photo 4">
-          <div class="gLabel">Photo 4</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- RSVP -->
   <section class="pattern rsvp" id="rsvp">
     <div class="container reveal">
@@ -1006,18 +987,20 @@
 
       <div class="formWrap">
         <form id="rsvpForm">
-          <label for="name">Your Name *</label>
-          <input id="name" name="name" required placeholder="Enter your full name"/>
+          <div class="rsvpGrid">
+            <div>
+              <label for="name">Your Name *</label>
+              <input id="name" name="name" required placeholder="Enter your full name"/>
+            </div>
+
+            <div>
+              <label for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel" required placeholder="+234 801 234 5678"/>
+            </div>
+          </div>
 
           <label for="email">Email Address *</label>
           <input id="email" name="email" type="email" required placeholder="your@email.com"/>
-
-          <!-- NEW: Phone Number with country selector -->
-          <label for="phone">Phone Number *</label>
-          <input id="phone" name="phone" type="tel" required placeholder="+234 801 234 5678" />
-          <div class="note" style="margin-top:8px;">
-            Default is Nigeria (+234). You can change to any country.
-          </div>
 
           <label>Will you be attending? *</label>
           <div class="radioRow">
@@ -1046,7 +1029,7 @@
           </div>
 
           <p class="note">
-            (Backend plan: You will manually approve RSVPs in your admin dashboard. After approval, an automatic email will be sent.)
+            (This form currently shows a confirmation. When you’re ready, we can connect it to Google Sheets / Formspree.)
           </p>
         </form>
       </div>
@@ -1061,54 +1044,36 @@
     <p class="tag">#MoLOveStory2026</p>
   </footer>
 
-  <!-- ✅ Correct phone script (this one will actually load) -->
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
-
   <script>
-    // =========================================================
-    // COVER OPEN (fixed: tap/click anywhere)
-    // =========================================================
+    // ---- Cover open ----
     const cover = document.getElementById("cover");
     const coverBtn = document.getElementById("coverBtn");
     const nav = document.getElementById("nav");
 
     function openCover(){
-      if (!cover || cover.classList.contains("hide")) return;
+      if (cover.classList.contains("hide")) return;
       cover.classList.add("hide");
       document.body.style.overflow = "auto";
-      setTimeout(() => { try { cover.remove(); } catch(e){} }, 900);
-      if (nav) nav.style.display = "block";
+      setTimeout(() => cover.remove(), 900);
+      nav.style.display = "block"; // show nav after opening
     }
+    coverBtn.addEventListener("click", openCover);
+    // allow tapping anywhere on cover image area (button already covers it)
 
-    if (coverBtn) coverBtn.addEventListener("click", openCover);
-    if (cover) {
-      cover.addEventListener("click", openCover);
-      cover.addEventListener("touchstart", openCover, { passive: true });
-    }
+    // ---- RSVP button in hero scrolls to RSVP ----
+    document.getElementById("heroRsvpBtn").addEventListener("click", () => {
+      document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
+    });
 
-    // =========================================================
-    // HERO RSVP scroll
-    // =========================================================
-    const heroBtn = document.getElementById("heroRsvpBtn");
-    if (heroBtn) {
-      heroBtn.addEventListener("click", () => {
-        document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
-      });
-    }
+    // ---- Get Directions button (replace link later) ----
+    document.getElementById("directionsBtn").addEventListener("click", () => {
+      // Replace with your actual Google Maps URL once you have the venue address pinned.
+      // Example:
+      // window.open("https://maps.google.com/?q=Akure+Ondo+State", "_blank");
+      alert("Add your Google Maps link here when ready.");
+    });
 
-    // =========================================================
-    // Directions button
-    // =========================================================
-    const directionsBtn = document.getElementById("directionsBtn");
-    if (directionsBtn) {
-      directionsBtn.addEventListener("click", () => {
-        alert("Add your Google Maps link here when ready.");
-      });
-    }
-
-    // =========================================================
-    // COUNTDOWN (Oct 23, 2026)
-    // =========================================================
+    // ---- Countdown (Oct 23, 2026) ----
     const target = new Date("2026-10-23T00:00:00").getTime();
     const elD = document.getElementById("cdDays");
     const elH = document.getElementById("cdHours");
@@ -1125,126 +1090,35 @@
       const mins = Math.floor(diff / 60000) % 60;
       const secs = Math.floor(diff / 1000) % 60;
 
-      if (elD) elD.textContent = days;
-      if (elH) elH.textContent = String(hours).padStart(2, "0");
-      if (elM) elM.textContent = String(mins).padStart(2, "0");
-      if (elS) elS.textContent = String(secs).padStart(2, "0");
+      elD.textContent = days;
+      elH.textContent = String(hours).padStart(2, "0");
+      elM.textContent = String(mins).padStart(2, "0");
+      elS.textContent = String(secs).padStart(2, "0");
     }
     tick();
     setInterval(tick, 1000);
 
-    // =========================================================
-    // PHONE INPUT (default Nigeria +234, user can change country)
-    // =========================================================
-    let iti = null;
-    const phoneInput = document.getElementById("phone");
-    if (phoneInput && window.intlTelInput) {
-      iti = window.intlTelInput(phoneInput, {
-        initialCountry: "ng",
-        separateDialCode: true,
-        // this helps validation / formatting
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
-      });
-    }
-
-    // =========================================================
-    // RSVP submit (SAFE demo now; backend-ready payload)
-    // =========================================================
+    // ---- RSVP form (demo submit -> in-page success) ----
     const success = document.getElementById("rsvpSuccess");
-    const rsvpForm = document.getElementById("rsvpForm");
+    document.getElementById("rsvpForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      success.style.display = "block";
+      e.target.reset();
+      setTimeout(() => success.style.display = "none", 4500);
+    });
 
-    if (rsvpForm) {
-      rsvpForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // Phone validation (only if plugin loaded)
-        let phoneE164 = phoneInput ? phoneInput.value.trim() : "";
-        if (iti) {
-          if (!iti.isValidNumber()) {
-            alert("Please enter a valid phone number.");
-            return;
-          }
-          phoneE164 = iti.getNumber(); // +234...
-        }
-
-        const payload = {
-          name: document.getElementById("name").value.trim(),
-          email: document.getElementById("email").value.trim(),
-          phone: phoneE164,
-          attend: document.querySelector('input[name="attend"]:checked')?.value,
-          diet: document.getElementById("diet").value.trim(),
-          msg: document.getElementById("msg").value.trim()
-        };
-
-        // BACKEND PLAN:
-        // - POST payload to your backend endpoint (Vercel/etc)
-        // - Status stays pending
-        // - You approve manually in dashboard
-        // - Backend sends email automatically after approval
-        //
-        // IMPORTANT:
-        // GitHub Pages cannot run backend code. Backend must be hosted separately.
-        //
-        // Example (later):
-        // const BACKEND_BASE = "https://your-backend.vercel.app";
-        // await fetch(`${BACKEND_BASE}/api/rsvp`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
-
-        // Demo behavior for now (no backend yet)
-        if (success) success.style.display = "block";
-        rsvpForm.reset();
-        // keep country selector after reset
-        if (iti) { try { iti.setCountry("ng"); } catch(e){} }
-        setTimeout(() => { if (success) success.style.display = "none"; }, 4500);
-
-        // For your own check in DevTools:
-        console.log("RSVP payload ready for backend:", payload);
-      });
-    }
-
-    // =========================================================
-    // REVEAL ON SCROLL (SAFE fallback to avoid blank page on some phones)
-    // =========================================================
+    // ---- Reveal on scroll ----
     const reveals = document.querySelectorAll(".reveal");
-
-    function showAllReveals(){
-      reveals.forEach(el => el.classList.add("show"));
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      showAllReveals();
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        for (const ent of entries){
-          if(ent.isIntersecting){
-            ent.target.classList.add("show");
-            io.unobserve(ent.target);
-          }
+    const io = new IntersectionObserver((entries) => {
+      for (const ent of entries){
+        if(ent.isIntersecting){
+          ent.target.classList.add("show");
+          io.unobserve(ent.target);
         }
-      }, { threshold: 0.15 });
+      }
+    }, { threshold: 0.15 });
 
-      reveals.forEach(el => io.observe(el));
-    }
-
-    // =========================================================
-    // GALLERY (placeholder now; backend-ready later)
-    // =========================================================
-    // Later you can load from backend (Supabase/Vercel) and set the img src.
-    // For now, placeholders stay and nothing will break.
-
-    // Example later:
-    // const BACKEND_BASE = "https://your-backend.vercel.app";
-    // fetch(`${BACKEND_BASE}/api/gallery`).then(r=>r.json()).then(photos=>{
-    //   const ids = ["g1","g2","g3","g4"];
-    //   photos.slice(0,4).forEach((p, i)=>{
-    //     const img = document.getElementById(ids[i]);
-    //     if (!img) return;
-    //     img.src = p.url;
-    //     img.style.display = "block";
-    //     const ph = img.parentElement.querySelector(".gPlaceholder");
-    //     if (ph) ph.style.display = "none";
-    //   });
-    // });
-
+    reveals.forEach(el => io.observe(el));
   </script>
 
 </body>
