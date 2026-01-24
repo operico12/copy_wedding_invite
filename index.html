@@ -1,216 +1,1251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morolake & Opeyemi | Wedding Invitation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morolake Adelerin & Opeyemi Olowogbade | Wedding Invitation</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Elegant free fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Phone input -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+  <!-- Phone input (default +234 Nigeria, can change to any country) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
 
-<style>
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#fbf8f3;
-  color:#2e2a25;
-  overflow:hidden;
-}
+  <style>
+    :root{
+      --cream:#fbf8f3;
+      --paper:#fffdf9;
+      --sage:#6c8f7a;
+      --sage-2:#9db8a0;
+      --ink:#2e2a25;
+      --muted:#6f6a63;
+      --gold:#c6a46a;
+      --blush:#f3ece9;
+      --line:#e8e2d8;
+      --shadow: 0 18px 55px rgba(20, 15, 10, 0.14);
+      --radius: 18px;
+    }
 
-section{
-  padding:90px 20px;
-  text-align:center;
-}
+    *{ box-sizing:border-box; }
+    html, body { height:100%; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream);
+      overflow:hidden; /* locked until cover opens */
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
 
-h1,h2{
-  font-family:"Cormorant Garamond", serif;
-}
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-.btn{
-  padding:14px 26px;
-  border:none;
-  border-radius:12px;
-  background:#6c8f7a;
-  color:#fff;
-  cursor:pointer;
-}
+    /* subtle + pattern background */
+    .pattern{
+      background:
+        radial-gradient(circle at 1px 1px, rgba(120, 130, 120, .10) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(var(--cream), var(--cream));
+    }
 
-.cover{
-  position:fixed;
-  inset:0;
-  background:#fbf8f3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
+    /* ---------- Section base ---------- */
+    section{
+      padding: 96px 20px;
+      text-align:center;
+      position:relative;
+    }
+    .container{
+      width:min(1050px, 92vw);
+      margin:0 auto;
+    }
 
-.cover img{
-  max-width:90%;
-  border-radius:16px;
-  box-shadow:0 20px 50px rgba(0,0,0,.2);
-}
+    .kicker{
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:rgba(70, 92, 78, .75);
+    }
+    .title{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:500;
+      letter-spacing:.5px;
+      font-size:54px;
+      margin:10px 0 14px;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+      max-width:720px;
+      margin:0 auto;
+    }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+    .divider{
+      width:100%;
+      margin:18px 0 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      color:var(--gold);
+    }
+    .divider:before, .divider:after{
+      content:"";
+      height:1px;
+      width:90px;
+      background:rgba(198, 164, 106, .45);
+    }
+    .divider span{
+      font-size:14px;
+      line-height:1;
+    }
 
-.timer{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  max-width:600px;
-  margin:40px auto 0;
-}
+    /* ---------- Buttons ---------- */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid transparent;
+      padding: 12px 26px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(108,143,122,1), rgba(93,124,106,1));
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 12px;
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 35px rgba(35, 55, 45, .18); }
+    .btn:active{ transform: translateY(0px); opacity:.9; }
+    .btn-outline{
+      background: transparent;
+      border-color: rgba(108, 143, 122, .55);
+      color: var(--sage);
+    }
 
-.timeBox{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-}
+    /* =========================================================
+       TOP NAV (professional touch)
+       ========================================================= */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251,248,243,.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,226,216,.75);
+      display:none; /* hidden until cover opens */
+    }
+    .navInner{
+      width:min(1050px, 92vw);
+      margin:0 auto;
+      padding: 12px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .brand{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 18px;
+      letter-spacing:.3px;
+    }
+    .links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(46,42,37,.7);
+    }
+    .links a{
+      padding: 6px 8px;
+      border-radius: 10px;
+      transition: background .15s ease;
+    }
+    .links a:hover{ background: rgba(157,184,160,.18); }
 
-.rsvp{
-  max-width:500px;
-  margin:auto;
-  background:#fff;
-  padding:30px;
-  border-radius:16px;
-}
+    /* =========================================================
+       COVER (Your envelope photo full screen)
+       ========================================================= */
+    .cover{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: var(--cream);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .cover.hide{
+      opacity:0;
+      transform: scale(1.04);
+      pointer-events:none;
+    }
+    .coverBtn{
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: min(980px, 92vw);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      display:block;
+    }
+    .coverBtn img{ width:100%; height:auto; display:block; }
+    .coverHint{
+      position:absolute;
+      bottom:42px;
+      left:0; right:0;
+      text-align:center;
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:rgba(60, 55, 50, .65);
+    }
 
-label{
-  display:block;
-  text-align:left;
-  margin-top:14px;
-}
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero{
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 0 20px;
+      background:
+        linear-gradient(rgba(251, 248, 243, .72), rgba(251, 248, 243, .78)),
+        url("assets/hero-bg.png") center/cover no-repeat;
+    }
+    .heroCard{
+      background: rgba(255, 255, 255, .42);
+      border: 1px solid rgba(255, 255, 255, .55);
+      box-shadow: 0 22px 60px rgba(20, 15, 10, .12);
+      border-radius: 18px;
+      padding: 58px 42px 46px;
+      width: min(820px, 92vw);
+      backdrop-filter: blur(7px);
+    }
+    .names{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:500;
+      font-size: 74px;
+      line-height: .95;
+      margin: 10px 0 12px;
+      letter-spacing: .5px;
+    }
+    .amp{
+      color: var(--gold);
+      font-size: 26px;
+      display:inline-block;
+      transform: translateY(-10px);
+      margin: 0 8px;
+      font-family:"Cormorant Garamond", serif;
+    }
+    .heroSmall{
+      font-size: 12px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: rgba(70, 92, 78, .78);
+      margin-bottom: 10px;
+    }
+    .heroLine{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 22px;
+      color: rgba(46, 42, 37, .92);
+      margin-top: 12px;
+    }
+    .heroMeta{
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(46, 42, 37, .78);
+      margin-top: 8px;
+    }
+    .scrollHint{
+      position:absolute;
+      bottom: 18px;
+      left: 0; right:0;
+      text-align:center;
+      color: rgba(70, 92, 78, .55);
+      font-size: 22px;
+    }
 
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  border-radius:10px;
-  border:1px solid #ddd;
-}
+    /* =========================================================
+       COUNTDOWN
+       ========================================================= */
+    .countdown{ padding-top: 90px; padding-bottom: 90px; }
+    .timer{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 22px;
+      width: min(820px, 92vw);
+      margin: 46px auto 0;
+    }
+    .timeBox{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(230, 224, 215, .85);
+      padding: 30px 16px;
+      box-shadow: 0 10px 25px rgba(20,15,10,.06);
+    }
+    .timeNum{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 56px;
+      font-weight:500;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .timeLab{
+      font-size: 11px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: rgba(90, 84, 76, .75);
+    }
 
-footer{
-  background:#3b3530;
-  color:#fff;
-  padding:40px 20px;
-}
-.iti{width:100%;}
-</style>
+    /* =========================================================
+       LOVE STORY
+       ========================================================= */
+    .love{ background: linear-gradient(var(--blush), var(--blush)); }
+    .storyWrap{
+      width: min(760px, 92vw);
+      margin: 52px auto 0;
+      text-align:left;
+      position:relative;
+    }
+    .storyLine{
+      position:absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 18px;
+      width: 2px;
+      background: rgba(198, 164, 106, .35);
+    }
+    .storyItem{
+      position:relative;
+      padding-left: 64px;
+      padding-bottom: 38px;
+    }
+    .dot{
+      position:absolute;
+      left: 11px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 10px 20px rgba(198, 164, 106, .18);
+    }
+    .storyDate{
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(198, 164, 106, .95);
+      margin-bottom: 6px;
+    }
+    .storyTitle{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+    .storyText{
+      color: rgba(70, 64, 58, .82);
+      line-height: 1.75;
+      font-size: 14px;
+      margin: 0;
+      max-width: 580px;
+    }
+
+    /* =========================================================
+       SCHEDULE (cleaner + reliable)
+       ========================================================= */
+    .schedule{ background: var(--paper); }
+
+    .schedWrap{
+      width: min(980px, 92vw);
+      margin: 52px auto 0;
+      position:relative;
+      padding: 10px 0 26px; /* little extra bottom padding */
+    }
+    .schedLine{
+      position:absolute;
+      left:50%;
+      top:0;
+      bottom:0;
+      width:1px;
+      background: rgba(220, 212, 203, .9);
+      transform: translateX(-.5px);
+    }
+
+    .schedRow{
+      display:grid;
+      grid-template-columns: 1fr 64px 1fr;
+      gap: 18px;
+      align-items:center;
+      margin: 34px 0;
+    }
+
+    .schedCard{
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(230, 224, 215, .9);
+      box-shadow: 0 12px 30px rgba(20,15,10,.06);
+      padding: 26px 22px;
+      max-width: 420px;
+      border-radius: 14px;
+    }
+    .schedCard.left{ justify-self: end; text-align:left; }
+    .schedCard.right{ justify-self: start; text-align:left; }
+
+    .schedTitle{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 26px;
+      margin: 0 0 6px;
+    }
+    .schedDate{
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .schedMeta{
+      font-size: 12.5px;
+      color: rgba(90, 84, 76, .80);
+      line-height: 1.55;
+    }
+
+    .iconDot{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(157, 184, 160, .35);
+      border: 1px solid rgba(108, 143, 122, .45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin: 0 auto;
+      flex: 0 0 auto;
+    }
+    .iconDot svg{ width:18px; height:18px; fill: rgba(62, 96, 78, .95); }
+
+    /* ======= NEW: Clear separation between Schedule and Venue on mobile ======= */
+    .sectionSeam{
+      height: 22px;
+      background: linear-gradient(
+        180deg,
+        rgba(232,226,216,0),
+        rgba(232,226,216,.7),
+        rgba(232,226,216,0)
+      );
+    }
+    @media (max-width: 720px){
+      #schedule{ padding-bottom: 110px; }
+      #venue{ padding-top: 110px; }
+    }
+
+    /* =========================================================
+       VENUE & TRAVEL
+       ========================================================= */
+    .venue{ background: var(--paper); }
+    .venueGrid{
+      width: min(980px, 92vw);
+      margin: 52px auto 0;
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 34px;
+      align-items:start;
+      text-align:left;
+    }
+    .venueCard{
+      background: rgba(240, 243, 239, .88);
+      border: 1px solid rgba(210, 219, 212, .95);
+      padding: 38px 28px;
+      box-shadow: 0 14px 40px rgba(20,15,10,.06);
+      text-align:center;
+      border-radius: 14px;
+    }
+    .venueCard .pin{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: rgba(157, 184, 160, .35);
+      border: 1px solid rgba(108, 143, 122, .45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin: 0 auto 14px;
+    }
+    .venueCard h3{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 28px;
+      margin: 10px 0 6px;
+    }
+    .venueCard p{
+      color: rgba(70,64,58,.78);
+      margin: 0 0 18px;
+      font-size: 14px;
+    }
+
+    .venueList{ display:flex; flex-direction:column; gap: 18px; }
+    .venueItem{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .venueIcon{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(157, 184, 160, .35);
+      border: 1px solid rgba(108, 143, 122, .45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .venueIcon svg{ width:18px; height:18px; fill: rgba(62, 96, 78, .95); }
+    .venueItem h4{
+      margin: 0 0 5px;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 20px;
+    }
+    .venueItem p{
+      margin:0;
+      color: rgba(70,64,58,.78);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       NEW: GALLERY (4 photos, backend-ready)
+       ========================================================= */
+    .gallery{ background: linear-gradient(var(--blush), var(--blush)); }
+    .galleryGrid{
+      width: min(980px, 92vw);
+      margin: 44px auto 0;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .gCard{
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(230, 224, 215, .9);
+      box-shadow: 0 12px 30px rgba(20,15,10,.06);
+      aspect-ratio: 1 / 1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .gCard img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:none; /* shown when we set a real src */
+    }
+    .gPlaceholder{
+      width:100%;
+      height:100%;
+      background: linear-gradient(
+        90deg,
+        rgba(240,243,239,.9),
+        rgba(255,255,255,.9),
+        rgba(240,243,239,.9)
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite linear;
+    }
+    @keyframes shimmer{
+      0%{ background-position: 0% 0; }
+      100%{ background-position: 200% 0; }
+    }
+    .gLabel{
+      position:absolute;
+      bottom:10px;
+      left:10px;
+      right:10px;
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(46,42,37,.7);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(230,224,215,.75);
+      padding: 8px 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+    }
+    @media (max-width: 900px){
+      .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px){
+      .galleryGrid{ grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================
+       RSVP
+       ========================================================= */
+    .rsvp{ padding-top: 100px; padding-bottom: 110px; }
+    .formWrap{
+      width: min(560px, 92vw);
+      margin: 48px auto 0;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(230, 224, 215, .92);
+      box-shadow: 0 14px 45px rgba(20,15,10,.08);
+      padding: 34px;
+      text-align:left;
+      border-radius: 14px;
+    }
+    label{
+      display:block;
+      font-size: 12px;
+      color: rgba(70,64,58,.85);
+      margin: 14px 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border: 1px solid rgba(220, 212, 203, .95);
+      background: rgba(252, 250, 247, .95);
+      outline:none;
+      font-family: inherit;
+      font-size: 14px;
+      border-radius: 10px;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    .radioRow{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      margin: 8px 0 2px;
+      color: rgba(70,64,58,.85);
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .radioRow input{ width:auto; }
+    .sendRow{ margin-top: 18px; }
+    .sendRow .btn{
+      width:100%;
+      border-radius: 12px;
+      padding: 14px 16px;
+      letter-spacing: 2.6px;
+    }
+    .note{
+      margin:14px 0 0;
+      color:rgba(70,64,58,.65);
+      font-size:12px;
+      line-height:1.5;
+    }
+    .success{
+      display:none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(157,184,160,.55);
+      background: rgba(157,184,160,.18);
+      border-radius: 12px;
+      color: rgba(35, 55, 45, .92);
+      font-size: 13px;
+    }
+
+    /* Make intl-tel-input align with your input width */
+    .iti{ width:100%; }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    footer{
+      background: #3b3530;
+      color: rgba(255,255,255,.92);
+      padding: 50px 20px;
+      text-align:center;
+    }
+    footer .fName{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 34px;
+      margin: 0 0 8px;
+    }
+    footer .fDate{
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: rgba(255,255,255,.75);
+      margin: 0;
+    }
+    footer .heart{
+      color: var(--gold);
+      font-size: 16px;
+      margin: 14px 0 6px;
+      display:block;
+    }
+    footer .tag{
+      font-size: 11px;
+      color: rgba(255,255,255,.65);
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    /* =========================================================
+       FADE-IN ON SCROLL (professional subtle animation)
+       ========================================================= */
+    .reveal{
+      opacity:0;
+      transform: translateY(12px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; transition:none; }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 900px){
+      .venueGrid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .timer{ grid-template-columns: repeat(2, 1fr); }
+      .names{ font-size: 48px; }
+      .title{ font-size: 40px; }
+      .heroCard{ padding: 44px 22px 34px; }
+      section{ padding: 80px 16px; }
+      .links{ display:none; } /* nav links hidden on very small screens */
+    }
+    @media (max-width: 860px){
+      .schedLine{ left: 20px; }
+      .schedRow{
+        grid-template-columns: 56px 1fr;
+      }
+      .schedRow .spacer{ display:none; }
+      .schedCard{ max-width: 100%; }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- COVER -->
-<div class="cover" id="cover">
-  <img src="assets/envelope-cover.png" alt="Open invitation">
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Morolake & Opeyemi</h1>
-    <p>October 23–24, 2026 · Akure, Ondo State</p>
-    <button class="btn" onclick="scrollToRSVP()">RSVP</button>
+  <!-- COVER -->
+  <div id="cover" class="cover">
+    <button id="coverBtn" class="coverBtn" aria-label="Open invitation">
+      <img src="assets/envelope-cover.png" alt="Wedding invitation envelope cover">
+    </button>
+    <div class="coverHint">TAP ANYWHERE TO OPEN</div>
   </div>
-</section>
 
-<!-- COUNTDOWN -->
-<section>
-  <h2>Countdown</h2>
-  <div class="timer">
-    <div class="timeBox"><div id="d">--</div>Days</div>
-    <div class="timeBox"><div id="h">--</div>Hours</div>
-    <div class="timeBox"><div id="m">--</div>Minutes</div>
-    <div class="timeBox"><div id="s">--</div>Seconds</div>
+  <!-- NAV (shows after opening) -->
+  <div class="nav" id="nav">
+    <div class="navInner">
+      <div class="brand">Morolake & Opeyemi</div>
+      <div class="links">
+        <a href="#countdown">Countdown</a>
+        <a href="#love">Love Story</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#venue">Venue</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- RSVP -->
-<section id="rsvp">
-  <h2>RSVP</h2>
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="heroCard reveal">
+      <div class="heroSmall">TOGETHER WITH THEIR FAMILIES</div>
 
-  <div class="rsvp">
-    <form id="rsvpForm">
-      <label>Name
-        <input required>
-      </label>
+      <div class="names">
+        Morolake Adelerin <span class="amp">&</span><br/>Opeyemi Olowogbade
+      </div>
 
-      <label>Email
-        <input type="email" required>
-      </label>
+      <div class="divider"><span>✦</span></div>
 
-      <label>Phone
-        <input id="phone" type="tel" required>
-      </label>
+      <div class="heroLine">Request the pleasure of your company</div>
+      <div class="heroMeta">October 23–24, 2026 • Akure, Ondo State</div>
 
-      <label>Message
-        <textarea></textarea>
-      </label>
+      <div style="margin-top:24px;">
+        <button class="btn" type="button" id="heroRsvpBtn">RSVP</button>
+      </div>
+    </div>
 
-      <button class="btn" type="submit">Send RSVP</button>
-    </form>
+    <div class="scrollHint">↓</div>
+  </section>
 
-    <p id="success" style="display:none;margin-top:14px;">Thank you! ❤️</p>
-  </div>
-</section>
+  <!-- COUNTDOWN -->
+  <section class="pattern countdown" id="countdown">
+    <div class="container reveal">
+      <div class="kicker">COUNTING DOWN TO</div>
+      <div class="title" style="font-size:52px;">Our Special Day</div>
 
-<footer>
-  <h2>Morolake & Opeyemi</h2>
-  <p>#MoLOveStory2026</p>
-</footer>
+      <div class="timer">
+        <div class="timeBox">
+          <div class="timeNum" id="cdDays">--</div>
+          <div class="timeLab">DAYS</div>
+        </div>
+        <div class="timeBox">
+          <div class="timeNum" id="cdHours">--</div>
+          <div class="timeLab">HOURS</div>
+        </div>
+        <div class="timeBox">
+          <div class="timeNum" id="cdMins">--</div>
+          <div class="timeLab">MINUTES</div>
+        </div>
+        <div class="timeBox">
+          <div class="timeNum" id="cdSecs">--</div>
+          <div class="timeLab">SECONDS</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+  <!-- LOVE STORY -->
+  <section class="love" id="love">
+    <div class="container reveal">
+      <div class="kicker">HOW IT ALL BEGAN</div>
+      <div class="title" style="font-size:52px;">Our Love Story</div>
+      <div class="divider"><span>♥</span></div>
 
-<script>
-// FORCE unlock scroll once page loads
-setTimeout(()=>{document.body.style.overflow="auto"},1000);
+      <div class="storyWrap">
+        <div class="storyLine"></div>
 
-// Cover open ANYWHERE
-const cover=document.getElementById("cover");
-cover.addEventListener("click",()=>{
-  cover.style.display="none";
-  document.body.style.overflow="auto";
-});
+        <div class="storyItem">
+          <div class="dot"></div>
+          <div class="storyDate">JUNE 2018</div>
+          <div class="storyTitle">First Meeting</div>
+          <p class="storyText">We met, and something about it felt like a beginning we didn’t want to miss.</p>
+        </div>
 
-// Countdown
-const target=new Date("2026-10-23T00:00:00").getTime();
-setInterval(()=>{
-  const now=Date.now();
-  let diff=Math.max(0,target-now);
-  document.getElementById("d").textContent=Math.floor(diff/86400000);
-  document.getElementById("h").textContent=Math.floor(diff/3600000)%24;
-  document.getElementById("m").textContent=Math.floor(diff/60000)%60;
-  document.getElementById("s").textContent=Math.floor(diff/1000)%60;
-},1000);
+        <div class="storyItem">
+          <div class="dot"></div>
+          <div class="storyDate">DECEMBER 2018</div>
+          <div class="storyTitle">First Date</div>
+          <p class="storyText">A simple date turned into hours of laughter and the quiet certainty that this was special.</p>
+        </div>
 
-// Phone input
-const iti=window.intlTelInput(document.querySelector("#phone"),{
-  initialCountry:"ng",
-  separateDialCode:true,
-  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
-});
+        <div class="storyItem" style="padding-bottom:0;">
+          <div class="dot"></div>
+          <div class="storyDate">DECEMBER 2024</div>
+          <div class="storyTitle">The Proposal</div>
+          <p class="storyText">Under the stars, we said “yes” to forever — and everything changed in the best way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// RSVP demo
-document.getElementById("rsvpForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  document.getElementById("success").style.display="block";
-  e.target.reset();
-});
+  <!-- SCHEDULE -->
+  <section class="schedule" id="schedule">
+    <div class="container reveal">
+      <div class="kicker">SCHEDULE</div>
+      <div class="title" style="font-size:52px;">Wedding Day Timeline</div>
+      <div class="divider"><span>❧</span></div>
 
-// Scroll helper
-function scrollToRSVP(){
-  document.getElementById("rsvp").scrollIntoView({behavior:"smooth"});
-}
-</script>
+      <div class="schedWrap">
+        <div class="schedLine"></div>
+
+        <!-- Row 1 -->
+        <div class="schedRow">
+          <div class="schedCard left">
+            <div class="schedTitle">Traditional Ceremony</div>
+            <div class="schedDate">October 23rd • Day 1</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Join us for the traditional engagement ceremony as we honor our culture and heritage.
+            </div>
+          </div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 2h2v3H7V2zm8 0h2v3h-2V2zM5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 6v10h14V11H5z"/></svg>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="schedRow">
+          <div class="spacer"></div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm1 5h-2v6l5 3 1-1-4-2V7z"/></svg>
+          </div>
+
+          <div class="schedCard right">
+            <div class="schedTitle">White Wedding</div>
+            <div class="schedDate">October 24th • Day 2</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Witness our exchange of vows in a beautiful ceremony surrounded by loved ones.
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="schedRow">
+          <div class="schedCard left">
+            <div class="schedTitle">Reception</div>
+            <div class="schedDate">Evening • Day 2</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Dinner, dancing, and celebration with family and friends.
+            </div>
+          </div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: separator so Schedule and Venue don't look merged on mobile -->
+  <div class="sectionSeam" aria-hidden="true"></div>
+
+  <!-- VENUE -->
+  <section class="pattern venue" id="venue">
+    <div class="container reveal">
+      <div class="kicker">THE LOCATION</div>
+      <div class="title" style="font-size:52px;">Venue & Travel</div>
+      <div class="divider"><span>✦</span></div>
+
+      <div class="venueGrid">
+        <div class="venueCard">
+          <div class="pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" style="fill: rgba(62, 96, 78, .95);">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+            </svg>
+          </div>
+          <h3>Akure, Ondo State</h3>
+          <p>Nigeria</p>
+          <button class="btn btn-outline" type="button" id="directionsBtn">GET DIRECTIONS</button>
+        </div>
+
+        <div class="venueList">
+          <div class="venueItem">
+            <div class="venueIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9L2 14v2l8-2v5l-2 1.5V22l3-1 3 1v-1.5L13 19v-5l8 2z"/></svg>
+            </div>
+            <div>
+              <h4>By Air</h4>
+              <p>Akure Airport is the nearest airport. Lagos Murtala Muhammed International Airport is approximately 4 hours away by road.</p>
+            </div>
+          </div>
+
+          <div class="venueItem">
+            <div class="venueIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 11l1-3a3 3 0 0 1 3-2h6a3 3 0 0 1 3 2l1 3v7h-2a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H3v-7h2zm2.2-3.4L6.5 10h11l-.7-2.4A1.5 1.5 0 0 0 15.4 7H8.6a1.5 1.5 0 0 0-1.4.6z"/></svg>
+            </div>
+            <div>
+              <h4>By Road</h4>
+              <p>Akure is accessible via the Lagos–Benin Expressway. The venue is located in the heart of Akure, Ondo State.</p>
+            </div>
+          </div>
+
+          <div class="venueItem">
+            <div class="venueIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 22V3h16v19H4zm4-2h2v-2H8v2zm0-4h2v-2H8v2zm0-4h2v-2H8v2zm6 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V9h-2v2z"/></svg>
+            </div>
+            <div>
+              <h4>Accommodations</h4>
+              <p>We’ve reserved rooms at partner hotels in Akure. Use code <strong>“MOROLAKEOPEYEMI”</strong> for special rates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEW: GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container reveal">
+      <div class="kicker">MEMORIES</div>
+      <div class="title" style="font-size:52px;">Gallery</div>
+      <div class="divider"><span>✦</span></div>
+      <p class="subtitle" style="margin-top:10px;">(These can be managed from your backend later. For now they are placeholders.)</p>
+
+      <div class="galleryGrid" id="galleryGrid">
+        <div class="gCard">
+          <div class="gPlaceholder"></div>
+          <img id="g1" alt="Gallery photo 1">
+          <div class="gLabel">Photo 1</div>
+        </div>
+        <div class="gCard">
+          <div class="gPlaceholder"></div>
+          <img id="g2" alt="Gallery photo 2">
+          <div class="gLabel">Photo 2</div>
+        </div>
+        <div class="gCard">
+          <div class="gPlaceholder"></div>
+          <img id="g3" alt="Gallery photo 3">
+          <div class="gLabel">Photo 3</div>
+        </div>
+        <div class="gCard">
+          <div class="gPlaceholder"></div>
+          <img id="g4" alt="Gallery photo 4">
+          <div class="gLabel">Photo 4</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="pattern rsvp" id="rsvp">
+    <div class="container reveal">
+      <div class="kicker">WE HOPE YOU CAN JOIN US</div>
+      <div class="title" style="font-size:52px;">RSVP</div>
+      <div class="divider"><span>✦</span></div>
+
+      <p class="subtitle" style="margin-top:10px;">Please respond by <strong>May 1st, 2026</strong></p>
+
+      <div class="formWrap">
+        <form id="rsvpForm">
+          <label for="name">Your Name *</label>
+          <input id="name" name="name" required placeholder="Enter your full name"/>
+
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email" required placeholder="your@email.com"/>
+
+          <!-- NEW: Phone Number with country selector -->
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+234 801 234 5678" />
+          <div class="note" style="margin-top:8px;">
+            Default is Nigeria (+234). You can change to any country.
+          </div>
+
+          <label>Will you be attending? *</label>
+          <div class="radioRow">
+            <label style="display:flex; gap:8px; align-items:center; margin:0;">
+              <input type="radio" name="attend" value="accept" required/>
+              Joyfully Accept
+            </label>
+            <label style="display:flex; gap:8px; align-items:center; margin:0;">
+              <input type="radio" name="attend" value="decline" required/>
+              Regretfully Decline
+            </label>
+          </div>
+
+          <label for="diet">Dietary Restrictions</label>
+          <input id="diet" name="diet" placeholder="Vegetarian, vegan, allergies, etc."/>
+
+          <label for="msg">Message for the Couple</label>
+          <textarea id="msg" name="msg" placeholder="Share your wishes or a special note..."></textarea>
+
+          <div class="sendRow">
+            <button class="btn" type="submit">SEND RSVP</button>
+          </div>
+
+          <div class="success" id="rsvpSuccess">
+            Thank you! Your RSVP has been received. ❤️
+          </div>
+
+          <p class="note">
+            (Backend plan: You will manually approve RSVPs in your admin dashboard. After approval, an automatic email will be sent.)
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fName">Morolake & Opeyemi</div>
+    <p class="fDate">October 23–24, 2026</p>
+    <span class="heart">♥</span>
+    <p class="tag">#MoLOveStory2026</p>
+  </footer>
+
+  <!-- ✅ Correct phone script (this one will actually load) -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+
+  <script>
+    // =========================================================
+    // COVER OPEN (fixed: tap/click anywhere)
+    // =========================================================
+    const cover = document.getElementById("cover");
+    const coverBtn = document.getElementById("coverBtn");
+    const nav = document.getElementById("nav");
+
+    function openCover(){
+      if (!cover || cover.classList.contains("hide")) return;
+      cover.classList.add("hide");
+      document.body.style.overflow = "auto";
+      setTimeout(() => { try { cover.remove(); } catch(e){} }, 900);
+      if (nav) nav.style.display = "block";
+    }
+
+    if (coverBtn) coverBtn.addEventListener("click", openCover);
+    if (cover) {
+      cover.addEventListener("click", openCover);
+      cover.addEventListener("touchstart", openCover, { passive: true });
+    }
+
+    // =========================================================
+    // HERO RSVP scroll
+    // =========================================================
+    const heroBtn = document.getElementById("heroRsvpBtn");
+    if (heroBtn) {
+      heroBtn.addEventListener("click", () => {
+        document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
+      });
+    }
+
+    // =========================================================
+    // Directions button
+    // =========================================================
+    const directionsBtn = document.getElementById("directionsBtn");
+    if (directionsBtn) {
+      directionsBtn.addEventListener("click", () => {
+        alert("Add your Google Maps link here when ready.");
+      });
+    }
+
+    // =========================================================
+    // COUNTDOWN (Oct 23, 2026)
+    // =========================================================
+    const target = new Date("2026-10-23T00:00:00").getTime();
+    const elD = document.getElementById("cdDays");
+    const elH = document.getElementById("cdHours");
+    const elM = document.getElementById("cdMins");
+    const elS = document.getElementById("cdSecs");
+
+    function tick(){
+      const now = Date.now();
+      let diff = target - now;
+      if (diff < 0) diff = 0;
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor(diff / 3600000) % 24;
+      const mins = Math.floor(diff / 60000) % 60;
+      const secs = Math.floor(diff / 1000) % 60;
+
+      if (elD) elD.textContent = days;
+      if (elH) elH.textContent = String(hours).padStart(2, "0");
+      if (elM) elM.textContent = String(mins).padStart(2, "0");
+      if (elS) elS.textContent = String(secs).padStart(2, "0");
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // =========================================================
+    // PHONE INPUT (default Nigeria +234, user can change country)
+    // =========================================================
+    let iti = null;
+    const phoneInput = document.getElementById("phone");
+    if (phoneInput && window.intlTelInput) {
+      iti = window.intlTelInput(phoneInput, {
+        initialCountry: "ng",
+        separateDialCode: true,
+        // this helps validation / formatting
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
+      });
+    }
+
+    // =========================================================
+    // RSVP submit (SAFE demo now; backend-ready payload)
+    // =========================================================
+    const success = document.getElementById("rsvpSuccess");
+    const rsvpForm = document.getElementById("rsvpForm");
+
+    if (rsvpForm) {
+      rsvpForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Phone validation (only if plugin loaded)
+        let phoneE164 = phoneInput ? phoneInput.value.trim() : "";
+        if (iti) {
+          if (!iti.isValidNumber()) {
+            alert("Please enter a valid phone number.");
+            return;
+          }
+          phoneE164 = iti.getNumber(); // +234...
+        }
+
+        const payload = {
+          name: document.getElementById("name").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          phone: phoneE164,
+          attend: document.querySelector('input[name="attend"]:checked')?.value,
+          diet: document.getElementById("diet").value.trim(),
+          msg: document.getElementById("msg").value.trim()
+        };
+
+        // BACKEND PLAN:
+        // - POST payload to your backend endpoint (Vercel/etc)
+        // - Status stays pending
+        // - You approve manually in dashboard
+        // - Backend sends email automatically after approval
+        //
+        // IMPORTANT:
+        // GitHub Pages cannot run backend code. Backend must be hosted separately.
+        //
+        // Example (later):
+        // const BACKEND_BASE = "https://your-backend.vercel.app";
+        // await fetch(`${BACKEND_BASE}/api/rsvp`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
+
+        // Demo behavior for now (no backend yet)
+        if (success) success.style.display = "block";
+        rsvpForm.reset();
+        // keep country selector after reset
+        if (iti) { try { iti.setCountry("ng"); } catch(e){} }
+        setTimeout(() => { if (success) success.style.display = "none"; }, 4500);
+
+        // For your own check in DevTools:
+        console.log("RSVP payload ready for backend:", payload);
+      });
+    }
+
+    // =========================================================
+    // REVEAL ON SCROLL (SAFE fallback to avoid blank page on some phones)
+    // =========================================================
+    const reveals = document.querySelectorAll(".reveal");
+
+    function showAllReveals(){
+      reveals.forEach(el => el.classList.add("show"));
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      showAllReveals();
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        for (const ent of entries){
+          if(ent.isIntersecting){
+            ent.target.classList.add("show");
+            io.unobserve(ent.target);
+          }
+        }
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => io.observe(el));
+    }
+
+    // =========================================================
+    // GALLERY (placeholder now; backend-ready later)
+    // =========================================================
+    // Later you can load from backend (Supabase/Vercel) and set the img src.
+    // For now, placeholders stay and nothing will break.
+
+    // Example later:
+    // const BACKEND_BASE = "https://your-backend.vercel.app";
+    // fetch(`${BACKEND_BASE}/api/gallery`).then(r=>r.json()).then(photos=>{
+    //   const ids = ["g1","g2","g3","g4"];
+    //   photos.slice(0,4).forEach((p, i)=>{
+    //     const img = document.getElementById(ids[i]);
+    //     if (!img) return;
+    //     img.src = p.url;
+    //     img.style.display = "block";
+    //     const ph = img.parentElement.querySelector(".gPlaceholder");
+    //     if (ph) ph.style.display = "none";
+    //   });
+    // });
+
+  </script>
 
 </body>
 </html>
