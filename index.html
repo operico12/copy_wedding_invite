@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <!-- Phone input country picker (default +234, changeable) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+
   <style>
     :root{
       --cream:#fbf8f3;
@@ -353,117 +356,90 @@
       max-width: 580px;
     }
 
-/* =========================================================
-   SCHEDULE (Mobile-first cards – looks premium on phones)
-   ========================================================= */
-.schedule{ background: var(--paper); }
+    /* =========================================================
+       SCHEDULE (cleaner + reliable)
+       ========================================================= */
+    .schedule{ background: var(--paper); }
 
-.scheduleGrid{
-  width: min(980px, 92vw);
-  margin: 52px auto 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  text-align: left;
-}
+    .schedWrap{
+      width: min(980px, 92vw);
+      margin: 52px auto 0;
+      position:relative;
+      padding: 10px 0;
+    }
+    .schedLine{
+      position:absolute;
+      left:50%;
+      top:0;
+      bottom:0;
+      width:1px;
+      background: rgba(220, 212, 203, .9);
+      transform: translateX(-.5px);
+    }
 
-/* Each card */
-.schedCardNew{
-  background: rgba(255,255,255,.95);
-  border: 1px solid rgba(230,224,215,.92);
-  box-shadow: 0 12px 30px rgba(20,15,10,.06);
-  border-radius: 16px;
-  padding: 20px 18px;
-  position: relative;
-  overflow: hidden;
-}
+    .schedRow{
+      display:grid;
+      grid-template-columns: 1fr 64px 1fr;
+      gap: 18px;
+      align-items:center;
+      margin: 34px 0;
+    }
 
-/* Soft accent stripe (premium look) */
-.schedCardNew:before{
-  content:"";
-  position:absolute;
-  left:0; top:0; bottom:0;
-  width: 6px;
-  background: linear-gradient(180deg, rgba(198,164,106,.9), rgba(157,184,160,.85));
-  opacity: .55;
-}
+    .schedCard{
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(230, 224, 215, .9);
+      box-shadow: 0 12px 30px rgba(20,15,10,.06);
+      padding: 26px 22px;
+      max-width: 420px;
+    }
+    .schedCard.left{ justify-self: end; text-align:left; }
+    .schedCard.right{ justify-self: start; text-align:left; }
 
-/* Header row: icon + title */
-.schedHead{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
+    .schedTitle{
+      font-family:"Cormorant Garamond", serif;
+      font-size: 26px;
+      margin: 0 0 6px;
+    }
+    .schedDate{
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .schedMeta{
+      font-size: 12.5px;
+      color: rgba(90, 84, 76, .80);
+      line-height: 1.55;
+    }
 
-.schedIcon{
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  background: rgba(157,184,160,.28);
-  border: 1px solid rgba(108,143,122,.40);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex: 0 0 auto;
-}
-.schedIcon svg{
-  width: 18px;
-  height: 18px;
-  fill: rgba(62,96,78,.95);
-}
+    .iconDot{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(157, 184, 160, .35);
+      border: 1px solid rgba(108, 143, 122, .45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin: 0 auto;
+      flex: 0 0 auto;
+    }
+    .iconDot svg{ width:18px; height:18px; fill: rgba(62, 96, 78, .95); }
 
-.schedTitleNew{
-  font-family:"Cormorant Garamond", serif;
-  font-size: 26px;
-  margin: 0;
-  line-height: 1.05;
-}
-
-/* Meta row (date pills) */
-.schedPills{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 10px;
-}
-
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: .2px;
-  border: 1px solid rgba(232,226,216,.95);
-  background: rgba(251,248,243,.85);
-  color: rgba(70,64,58,.85);
-}
-.pill.gold{
-  border-color: rgba(198,164,106,.35);
-  background: rgba(198,164,106,.12);
-  color: rgba(118,86,44,.92);
-}
-
-.schedTextNew{
-  margin: 0;
-  color: rgba(70,64,58,.82);
-  line-height: 1.7;
-  font-size: 14px;
-}
-
-/* Desktop: 2-column grid */
-@media (min-width: 900px){
-  .scheduleGrid{
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  /* Make the 3rd card span full width for balance */
-  .scheduleGrid .schedCardNew:nth-child(3){
-    grid-column: 1 / -1;
-  }
-}
+    /* ===== Section seam for professional separation (Schedule -> Venue) ===== */
+    .sectionSeam{
+      height: 22px;
+      background: linear-gradient(
+        180deg,
+        rgba(232,226,216,0),
+        rgba(232,226,216,.6),
+        rgba(232,226,216,0)
+      );
+    }
+    @media (max-width: 720px){
+      #schedule{ padding-bottom: 100px; }
+      #venue{ padding-top: 100px; }
+    }
 
     /* =========================================================
        VENUE & TRAVEL
@@ -537,6 +513,48 @@
       color: rgba(70,64,58,.78);
       font-size: 13.5px;
       line-height: 1.65;
+    }
+
+    /* =========================================================
+       GALLERY (backend-ready placeholders)
+       ========================================================= */
+    .galleryGrid{
+      width: min(980px, 92vw);
+      margin: 46px auto 0;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .galleryCard{
+      border-radius: 16px;
+      overflow:hidden;
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(230,224,215,.9);
+      box-shadow: 0 12px 30px rgba(20,15,10,.06);
+    }
+    .galleryCard img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .skeleton{
+      background: linear-gradient(
+        90deg,
+        rgba(240,243,239,.9),
+        rgba(255,255,255,.9),
+        rgba(240,243,239,.9)
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite linear;
+    }
+    @keyframes shimmer{
+      0%{ background-position: 0% 0; }
+      100%{ background-position: 200% 0; }
+    }
+    @media (max-width: 900px){
+      .venueGrid{ grid-template-columns: 1fr; }
+      .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
     }
 
     /* =========================================================
@@ -657,9 +675,6 @@
     /* =========================================================
        RESPONSIVE
        ========================================================= */
-    @media (max-width: 900px){
-      .venueGrid{ grid-template-columns: 1fr; }
-    }
     @media (max-width: 720px){
       .timer{ grid-template-columns: repeat(2, 1fr); }
       .names{ font-size: 48px; }
@@ -667,6 +682,7 @@
       .heroCard{ padding: 44px 22px 34px; }
       section{ padding: 80px 16px; }
       .links{ display:none; } /* nav links hidden on very small screens */
+      .galleryGrid{ grid-template-columns: 1fr; } /* very small phones */
     }
     @media (max-width: 860px){
       .schedLine{ left: 20px; }
@@ -676,6 +692,9 @@
       .schedRow .spacer{ display:none; }
       .schedCard{ max-width: 100%; }
     }
+
+    /* Improve intl-tel-input layout so it matches your inputs */
+    .iti{ width:100%; }
   </style>
 </head>
 
@@ -698,6 +717,7 @@
         <a href="#love">Love Story</a>
         <a href="#schedule">Schedule</a>
         <a href="#venue">Venue</a>
+        <a href="#gallery">Gallery</a>
         <a href="#rsvp">RSVP</a>
       </div>
     </div>
@@ -751,72 +771,6 @@
       </div>
     </div>
   </section>
-<div class="scheduleGrid">
-
-  <!-- Card 1 -->
-  <div class="schedCardNew reveal">
-    <div class="schedHead">
-      <div class="schedIcon" aria-hidden="true">
-        <!-- calendar -->
-        <svg viewBox="0 0 24 24"><path d="M7 2h2v3H7V2zm8 0h2v3h-2V2zM5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 6v10h14V11H5z"/></svg>
-      </div>
-      <h3 class="schedTitleNew">Traditional Ceremony</h3>
-    </div>
-
-    <div class="schedPills">
-      <span class="pill gold">October 23rd</span>
-      <span class="pill">Day 1</span>
-      <span class="pill">Akure, Ondo State</span>
-    </div>
-
-    <p class="schedTextNew">
-      Join us for the traditional engagement ceremony as we honor our culture and heritage.
-    </p>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="schedCardNew reveal">
-    <div class="schedHead">
-      <div class="schedIcon" aria-hidden="true">
-        <!-- rings / simple circle icon -->
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8a8 8 0 0 1-8 8z"/></svg>
-      </div>
-      <h3 class="schedTitleNew">White Wedding</h3>
-    </div>
-
-    <div class="schedPills">
-      <span class="pill gold">October 24th</span>
-      <span class="pill">Day 2</span>
-      <span class="pill">Akure, Ondo State</span>
-    </div>
-
-    <p class="schedTextNew">
-      Witness our exchange of vows in a beautiful ceremony surrounded by loved ones.
-    </p>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="schedCardNew reveal">
-    <div class="schedHead">
-      <div class="schedIcon" aria-hidden="true">
-        <!-- location -->
-        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-      </div>
-      <h3 class="schedTitleNew">Reception</h3>
-    </div>
-
-    <div class="schedPills">
-      <span class="pill gold">Evening</span>
-      <span class="pill">Day 2</span>
-      <span class="pill">Akure, Ondo State</span>
-    </div>
-
-    <p class="schedTextNew">
-      Dinner, dancing, and celebration with family and friends.
-    </p>
-  </div>
-
-</div>
 
   <!-- LOVE STORY -->
   <section class="love" id="love">
@@ -852,7 +806,76 @@
     </div>
   </section>
 
- 
+  <!-- SCHEDULE -->
+  <section class="schedule" id="schedule">
+    <div class="container reveal">
+      <div class="kicker">SCHEDULE</div>
+      <div class="title" style="font-size:52px;">Wedding Day Timeline</div>
+      <div class="divider"><span>❧</span></div>
+
+      <div class="schedWrap">
+        <div class="schedLine"></div>
+
+        <!-- Row 1 -->
+        <div class="schedRow">
+          <div class="schedCard left">
+            <div class="schedTitle">Traditional Ceremony</div>
+            <div class="schedDate">October 23rd • Day 1</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Join us for the traditional engagement ceremony as we honor our culture and heritage.
+            </div>
+          </div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 2h2v3H7V2zm8 0h2v3h-2V2zM5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 6v10h14V11H5z"/></svg>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="schedRow">
+          <div class="spacer"></div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm1 5h-2v6l5 3 1-1-4-2V7z"/></svg>
+          </div>
+
+          <div class="schedCard right">
+            <div class="schedTitle">White Wedding</div>
+            <div class="schedDate">October 24th • Day 2</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Witness our exchange of vows in a beautiful ceremony surrounded by loved ones.
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="schedRow">
+          <div class="schedCard left">
+            <div class="schedTitle">Reception</div>
+            <div class="schedDate">Evening • Day 2</div>
+            <div class="schedMeta">
+              Akure, Ondo State<br/><br/>
+              Dinner, dancing, and celebration with family and friends.
+            </div>
+          </div>
+
+          <div class="iconDot" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- professional separation between schedule and venue -->
+  <div class="sectionSeam" aria-hidden="true"></div>
 
   <!-- VENUE -->
   <section class="pattern venue" id="venue">
@@ -909,6 +932,26 @@
     </div>
   </section>
 
+  <!-- GALLERY (backend-ready placeholders) -->
+  <section class="love" id="gallery">
+    <div class="container reveal">
+      <div class="kicker">MEMORIES</div>
+      <div class="title" style="font-size:52px;">Gallery</div>
+      <div class="divider"><span>✦</span></div>
+
+      <p class="subtitle" style="margin-top:10px;">
+        Moments we cherish — more to come.
+      </p>
+
+      <div class="galleryGrid" id="galleryGrid">
+        <div class="galleryCard skeleton"></div>
+        <div class="galleryCard skeleton"></div>
+        <div class="galleryCard skeleton"></div>
+        <div class="galleryCard skeleton"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- RSVP -->
   <section class="pattern rsvp" id="rsvp">
     <div class="container reveal">
@@ -925,6 +968,12 @@
 
           <label for="email">Email Address *</label>
           <input id="email" name="email" type="email" required placeholder="your@email.com"/>
+
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+234 801 234 5678"/>
+          <small style="display:block; margin-top:6px; color:rgba(70,64,58,.65); font-size:12px;">
+            Default is Nigeria (+234). You may change your country.
+          </small>
 
           <label>Will you be attending? *</label>
           <div class="radioRow">
@@ -953,7 +1002,7 @@
           </div>
 
           <p class="note">
-            (For now this form shows a confirmation. Later we’ll connect it to Google Sheets.)
+            (This form shows a confirmation. Next step: connect to backend for approval + email.)
           </p>
         </form>
       </div>
@@ -967,6 +1016,9 @@
     <span class="heart">♥</span>
     <p class="tag">#MoLOveStory2026</p>
   </footer>
+
+  <!-- Phone input library -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intl-tel-input.min.js"></script>
 
   <script>
     // ---- Cover open ----
@@ -1018,12 +1070,31 @@
     tick();
     setInterval(tick, 1000);
 
+    // ---- Phone input with default +234 (Nigeria), user can change country ----
+    const phoneInput = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInput, {
+      initialCountry: "ng",
+      separateDialCode: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js",
+    });
+
     // ---- RSVP form (demo submit -> in-page success) ----
     const success = document.getElementById("rsvpSuccess");
-    document.getElementById("rsvpForm").addEventListener("submit", (e) => {
+    const form = document.getElementById("rsvpForm");
+
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      if (!iti.isValidNumber()) {
+        alert("Please enter a valid phone number.");
+        return;
+      }
+
+      const phoneE164 = iti.getNumber(); // e.g. +2348012345678
+      console.log("Phone (E.164):", phoneE164);
+
       success.style.display = "block";
-      e.target.reset();
+      form.reset();
       setTimeout(() => success.style.display = "none", 4500);
     });
 
@@ -1039,6 +1110,30 @@
     }, { threshold: 0.15 });
 
     reveals.forEach(el => io.observe(el));
+
+    // ---- Gallery loader (backend-ready) ----
+    async function loadGallery(){
+      const grid = document.getElementById("galleryGrid");
+      if (!grid) return;
+
+      try {
+        // Replace later with your real backend endpoint
+        const res = await fetch("https://YOUR_BACKEND_DOMAIN/api/gallery");
+        if (!res.ok) throw new Error();
+
+        const photos = await res.json(); // [{ url: "..." }]
+        if (!Array.isArray(photos) || photos.length === 0) return;
+
+        grid.innerHTML = photos.slice(0,4).map(p => `
+          <div class="galleryCard">
+            <img src="${p.url}" alt="Gallery photo">
+          </div>
+        `).join("");
+      } catch {
+        // backend not ready → keep placeholders
+      }
+    }
+    loadGallery();
   </script>
 
 </body>
